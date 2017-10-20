@@ -1,0 +1,126 @@
+<%= provide :page_title, I18n.t('blog_posts.show.header', resource: @jobs_job.try(:id)) %>
+<%= provide :breadcrumb do %>
+    <li><%= link_to I18n.t('activerecord.models.blog_posts.other'), jobs_jobs_path %></li>
+    <li><%= link_to @jobs_job.try(:id), @jobs_job %></li>
+    <li><%= I18n.t('blog_posts.show.header', resource: @jobs_job.try(:id)) %></li>
+<% end %>
+
+<main id="main-container" style="min-height: 530px;">
+  <div class="content bg-gray-lighter">
+    <div class="row items-push">
+      <div class="col-sm-7">
+        <h1 class="page-heading">
+          <%= t('jobs_jobs.show.title') %>
+        </h1>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="block">
+      <div class="block-header text-right">
+        <h3 class="block-title">
+        </h3>
+        <span>
+          <%= link_to t('jobs_jobs.new.header'), new_jobs_job_path, class: 'btn btn-sm btn-square btn-success' %>
+        </span>
+      </div>
+      <div class="block-content">
+        <div class="row">
+
+          <div class="col-sm-12">
+            <table class="table table-striped">
+              <thead>
+              </thead>
+              <tbody>
+              <tr>
+                <td><strong><%= t 'activerecord.attributes.jobs_job.title' %>:</strong></td>
+                <td><%= @jobs_job.title %></td>
+              </tr>
+
+              <tr>
+                <td><strong><%= t 'activerecord.attributes.jobs_job.location' %>:</strong></td>
+                <td><%= @jobs_job.location %></td>
+              </tr>
+
+              <tr>
+                <td><strong><%= t 'activerecord.attributes.jobs_job.job_type' %>:</strong></td>
+                <td><%= @jobs_job.job_type %></td>
+              </tr>
+
+              <tr>
+                <td><strong><%= t 'activerecord.attributes.jobs_job.week_hours' %>:</strong></td>
+                <td><%= @jobs_job.week_hours %></td>
+              </tr>
+
+              <tr>
+                <td><strong><%= t 'activerecord.attributes.jobs_job.description' %>:</strong></td>
+                <td><%= @jobs_job.description %></td>
+              </tr>
+
+              <tr>
+                <td><strong><%= t 'activerecord.attributes.jobs_job.company_name' %>:</strong></td>
+                <td><%= @jobs_job.company_name %></td>
+              </tr>
+
+              <tr>
+                <td><strong><%= t 'activerecord.attributes.jobs_job.company_url' %>:</strong></td>
+                <td><%= @jobs_job.company_url %></td>
+              </tr>
+
+              <tr>
+                <td><strong><%= t 'activerecord.attributes.jobs_job.user_id' %>:</strong></td>
+                <td><%= @jobs_job.user.decorate.name %></td>
+              </tr>
+
+              <tr>
+                <td><strong><%= t 'activerecord.attributes.jobs_job.positions' %>:</strong></td>
+                <td><%= @jobs_job.positions %></td>
+              </tr>
+
+              <tr>
+                <td><strong><%= t 'activerecord.attributes.jobs_job.sallary_low' %>:</strong></td>
+                <td><%= @jobs_job.sallary_low %></td>
+              </tr>
+
+              <tr>
+                <td><strong><%= t 'activerecord.attributes.jobs_job.sallary_high' %>:</strong></td>
+                <td><%= @jobs_job.sallary_high %></td>
+              </tr>
+
+              <tr>
+                <td><strong><%= t 'activerecord.attributes.jobs_job.contact_email' %>:</strong></td>
+                <td><%= @jobs_job.contact_email %></td>
+              </tr>
+
+              <tr>
+                <td><strong><%= t 'activerecord.attributes.jobs_job.expiration_date' %>:</strong></td>
+                <td><%= @jobs_job.expiration_date %></td>
+              </tr>
+
+              <tr>
+                <td><strong><%= t 'activerecord.attributes.jobs_job.acess_count' %>:</strong></td>
+                <td><%= @jobs_job.acess_count %></td>
+              </tr>
+
+              <tr>
+                <td><strong><%= t 'activerecord.attributes.jobs_job.status' %>:</strong></td>
+                <td><%= @jobs_job.status %></td>
+              </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="col-sm-4 ">
+            <%= link_to I18n.t('misc.action.back'), jobs_jobs_path, class: 'btn btn-default' %>
+            <%= link_to I18n.t('misc.action.edit'), edit_jobs_job_path(@jobs_job), class: 'btn btn-warning' %>
+            <%= link_to I18n.t('misc.action.destroy'), jobs_job_path(@jobs_job), method: :destroy, data: {confirm: I18n.t('jobs_job.show.remover')}, class: 'btn btn-danger' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+

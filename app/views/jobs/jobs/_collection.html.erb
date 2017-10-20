@@ -1,0 +1,22 @@
+<% collection.each do |resource| %>
+    <tr id="<%= dom_id(resource) %>">
+      <td><%= resource.title %></td>
+      <td><%= resource.location  %></td>
+      <td><%= resource.job_type %></td>
+      <td><%= resource.week_hours %></td>
+      <td><%= resource.company_name %></td>
+      <td><%= resource.positions %></td>
+      <td><%= resource.sallary_low %></td>
+      <td><%= resource.sallary_high %></td>
+      <td><%= resource.contact_email %></td>
+      <td><%= converte_date(resource.expiration_date) %></td>
+      <td><%= active_inactive(resource.status) %></td>
+      <td class="text-center">
+        <% if current_user  %>
+            <%= resource.decorate.link_to_show %>
+            <%= resource.decorate.link_to_edit %>
+        <% end %>
+      </td>
+      </td>
+    </tr>
+<% end %>

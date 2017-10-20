@@ -1,0 +1,39 @@
+pt-BR:
+  activerecord:
+    models:
+      jobs_job:
+        one: "Vaga de Emprego"
+        other: "Vagas de Empregos"
+        explain: "Vaga de Emprego"
+
+    attributes:
+      jobs_job:
+        title: Cargo
+        location: Cidade
+        job_type: Tipo da Vaga
+        week_hours: Horas Semanais
+        company_name: Nome da Empresa
+        description: Descrição do Cargo
+        positions: Vagas
+        company_url: Site Empresa
+        user_id: Responsavel pelo Cadastro
+        sallary_low: Mínimo Faixa Salarial
+        sallary_high: Máximo Faixa Salarial
+        contact_email: Email de Contato
+        expiration_date: Data de Expiração
+        acess_count: Quantidade de Acessos
+        status: Status
+        created_at: Criado em
+        updated_at: Atualizado em
+  jobs_jobs:
+    index:
+      title: 'Vagas de Emprego'
+      header: 'Novo post'
+    new:
+      header: 'Nova Vaga de Emprego'
+    show:
+      title: Vaga de Emprego
+    edit:
+      title: Editando vaga de emprego
+
+

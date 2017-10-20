@@ -1,0 +1,23 @@
+<%= simple_form_for @jobs_job, class: "form-horizontal" do |form| %>
+    <%= form.error_notification %>
+    <%= form.input :title, id: :jobs_job_title %>
+    <%= form.input :location, id: :jobs_job_location %>
+    <%= form.input :job_type, :collection => Jobs::Job::JOB_TYPES.sort.map {|k, v| [v, k]}, :include_blank => false %>
+    <%= form.input :week_hours, id: :jobs_job_week_hours %>
+    <%= form.input :description, id: :jobs_job_description %>
+    <%= form.input :company_name, id: :jobs_job_company_name %>
+    <%= form.input :company_url, id: :jobs_job_company_url %>
+    <%= form.input :positions, id: :jobs_job_positions %>
+
+    <%= form.input :sallary_low, id: :jobs_job_sallary_low %>
+    <%= form.input :sallary_high, id: :jobs_job_sallary_high %>
+    <%= form.input :contact_email, id: :jobs_job_contact_email %>
+    <%= form.input :expiration_date, id: :jobs_job_expiration_date %>
+    <% if current_user and current_user.admin? %>
+        <%= form.input :status, id: :jobs_job_status %>
+    <% end %>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+<% end %>

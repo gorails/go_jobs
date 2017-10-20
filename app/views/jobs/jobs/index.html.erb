@@ -1,0 +1,52 @@
+<%= provide :page_title, I18n.t('jobs_jobs.index.header') %>
+<%= provide :breadcrumb do %>
+    <li><%= I18n.t('activerecord.models.jobs_jobs.other') %></li>
+<% end %>
+
+<main id="main-container" style="min-height: 530px;">
+  <div class="content bg-gray-lighter">
+    <div class="row items-push">
+      <div class="col-sm-7">
+        <h1 class="page-heading">
+          <%= t('jobs_jobs.index.title') %>
+        </h1>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="block">
+      <div class="block-header text-right">
+        <h3 class="block-title">
+        </h3>
+        <span >
+          <%= link_to I18n.t('jobs_jobs.new.header'), new_jobs_job_path, class: 'btn btn-sm btn-square btn-success' %>
+        </span>
+      </div>
+      <div class="block-content">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th><%=t 'activerecord.attributes.jobs_job.title' %></th>
+            <th><%=t 'activerecord.attributes.jobs_job.location' %></th>
+            <th><%=t 'activerecord.attributes.jobs_job.job_type' %></th>
+            <th><%=t 'activerecord.attributes.jobs_job.week_hours' %></th>
+            <th><%=t 'activerecord.attributes.jobs_job.company_name' %></th>
+            <th><%=t 'activerecord.attributes.jobs_job.positions' %></th>
+            <th><%=t 'activerecord.attributes.jobs_job.sallary_low' %></th>
+            <th><%=t 'activerecord.attributes.jobs_job.sallary_high' %></th>
+            <th><%=t 'activerecord.attributes.jobs_job.contact_email' %></th>
+            <th><%=t 'activerecord.attributes.jobs_job.expiration_date' %></th>
+            <th><%=t 'activerecord.attributes.jobs_job.status' %></th>
+            <th class="text-center" style="width: 150px;"><%=t 'misc.actions' %></th>
+          </tr>
+          </thead>
+          <tbody id='blog_posts'>
+          <%= render 'collection', collection: @jobs_jobs %>
+          </tbody>
+        </table>
+        <%=render 'pagination',collection: @jobs_jobs%>
+
+      </div>
+    </div>
+  </div>
+</main>

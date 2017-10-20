@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  location: MyString
+  job_type: 1
+  week_hours: 1
+  description: MyText
+  company_name: MyString
+  company_url: MyString
+  user: one
+  positions: 1
+  sallary_low: 1
+  sallary_high: 1
+  contact_email: MyString
+  expiration_date: 
+  acess_count: 1
+  status: 1
+
+two:
+  title: MyString
+  location: MyString
+  job_type: 1
+  week_hours: 1
+  description: MyText
+  company_name: MyString
+  company_url: MyString
+  user: two
+  positions: 1
+  sallary_low: 1
+  sallary_high: 1
+  contact_email: MyString
+  expiration_date: 
+  acess_count: 1
+  status: 1
