@@ -13,6 +13,7 @@
     <%= form.input :sallary_high, id: :jobs_job_sallary_high %>
     <%= form.input :contact_email, id: :jobs_job_contact_email %>
     <%= form.input :expiration_date, id: :jobs_job_expiration_date %>
+    <%= form.input :published_at, id: :jobs_job_published_at %>
     <% if current_user and current_user.admin? %>
         <%= form.input :status, id: :jobs_job_status %>
     <% end %>

@@ -1,0 +1,41 @@
+
+<main id="main-container" style="min-height: 190px;"><div class="bg-image" style="background-image: url('<%=asset_path "go_jobs/job-oportunities.jpg"%>');">
+  <div class="bg-primary-op">
+    <section class="content content-full content-boxed overflow-hidden">
+      <div class="push-150-t push-150 text-center">
+        <h1 class="text-white push-10 animated fadeInDown" data-toggle="appear" data-class="animated fadeInDown"><%= @jobs_job.title %></h1>
+      </div>
+    </section>
+  </div>
+</div>
+  <div class="bg-white">
+    <section class="content content-boxed">
+      <div class="text-center">
+       Vaga postada por <%= @jobs_job.decorate.link_to_author %> <% if @jobs_job.published_at or (current_user and current_user.admin?) %> - <% end %> <%= converte_timestamp(@jobs_job.published_at) %> <% if current_user and current_user.admin? %><em>visualizada <%=@jobs_job.access_count%> <% end %></em>
+      </div>
+      <div class="row push-50-t push-50 nice-copy-story">
+        <div class="col-sm-8 col-sm-offset-2">
+          <p>Local da Vaga: <%= @jobs_job.location %></p>
+          <p>Faixa salarial (<%= number_to_currency(@jobs_job.sallary_low, :precision => 2) %> - <%= number_to_currency(@jobs_job.sallary_high, :precision => 2) %>)</p>
+          <p>Tipo da Vaga: <%= @jobs_job.job_type_to_s %> </p>
+          <p>Horas semanais: <%= @jobs_job.week_hours %> </p>
+          <p>Descrição da vaga: <%= @jobs_job.description %> </p>
+          <p>Empresa: <%= @jobs_job.company_name %> </p>
+          <p>Site Empresa <%= link_to @jobs_job.company_url, url_with_protocol(@jobs_job.company_url) ,target: :_blank%> </p>
+          <p>Vagas <%= @jobs_job.positions %> </p>
+          <p>E-mail Contato <%= @jobs_job.contact_email %> </p>
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+  <section class="content content-full content-boxed">
+    <div class="push-20-t push-20 text-center">
+      <h3 class="h4 text-white-op push-20 animated fadeIn" data-toggle="appear"> </h3>
+    </div>
+  </section>
+
+</main>
+
+

@@ -1,8 +1,8 @@
 module Jobs
   class JobsController < ApplicationController
-    before_action :set_jobs_job, only: [:show, :edit, :update, :destroy]
-    before_action :authenticate_user!, except: %i(index show)
-    load_and_authorize_resource except: %i(index show create),param_method: :jobs_job_params
+    before_action :set_jobs_job, only: [:show, :edit, :update, :destroy,:show_jobs_list]
+    before_action :authenticate_user!, except: %i(index show jobs_list show_jobs_list)
+    load_and_authorize_resource except: %i(index show create jobs_list show_jobs_list),param_method: :jobs_job_params
     # GET /jobs/jobs
     def index
       if current_user and current_user.admin?
@@ -10,7 +10,14 @@ module Jobs
       else
         @jobs_jobs = Job.where(user_id:current_user.id).order(expiration_date: :desc).page params[:page]
       end
+    end
 
+    def jobs_list
+      @jobs_jobs = Job.where('expiration_date >= ?  and ? >=  published_at   and  status = ? ', DateTime.now,DateTime.now,true).includes(:user).page params[:page]
+    end
+
+    def show_jobs_list
+      @jobs_job.increment!(:access_count)
     end
 
     # GET /jobs/jobs/1
@@ -60,7 +67,7 @@ module Jobs
 
     # Only allow a trusted parameter "white list" through.
     def jobs_job_params
-      params.require(:jobs_job).permit(:title, :location, :job_type, :week_hours, :description, :company_name, :company_url, :user_id, :positions, :sallary_low, :sallary_high, :contact_email, :expiration_date, :acess_count, :status)
+      params.require(:jobs_job).permit(:title, :location, :job_type, :week_hours, :description, :company_name, :company_url, :user_id, :positions, :sallary_low, :sallary_high, :contact_email, :expiration_date,:published_at, :access_count, :status)
     end
   end
 end

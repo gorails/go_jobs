@@ -11,5 +11,11 @@ module Jobs
     }.freeze
 
 
+    def job_type_to_s
+      JOB_TYPES.each do |key,value|
+        return value if self.job_type == key
+      end
+    end
+
   end
 end
